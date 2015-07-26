@@ -1,6 +1,14 @@
 class Genre
-  # code here
 
-  def self.reset_all
-  end
+	attr_reader :artists, :songs
+
+	extend Findable
+	include Findable
+
+	def initialize
+		super
+		@artists = []
+		@songs = []
+	end
+
 end

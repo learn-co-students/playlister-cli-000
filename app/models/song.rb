@@ -1,6 +1,19 @@
-class Song
-  # code here
+# require 'pry'
 
-  def self.reset_all
-  end
+class Song
+
+	attr_accessor :artist, :genre
+
+	extend Findable
+	include Findable
+
+	def to_s
+		"#{@artist.name} - #{@name} [#{@genre.name}]"
+	end
+
+	def genre=(genre)
+		@genre = genre
+		genre.songs<<self
+	end
+
 end
