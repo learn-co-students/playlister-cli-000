@@ -23,7 +23,7 @@ module Findable
 
   def find_by_name(name)
     NUMBER_OF_INSTANCES.detect{|a| a.name}
-    # binding.pry
+    binding.pry
   end
 
   def create_by_name(name)
