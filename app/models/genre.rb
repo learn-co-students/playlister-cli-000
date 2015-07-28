@@ -1,9 +1,10 @@
 class Genre
 
+	attr_accessor :name
 	attr_reader :artists, :songs
 
-	extend Findable
 	include Findable
+	extend Findable
 
 	def initialize
 		super

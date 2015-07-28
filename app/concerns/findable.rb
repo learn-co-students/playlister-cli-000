@@ -2,7 +2,6 @@ require 'pry'
 
 module Findable
 
-	attr_accessor :name
 	NUMBER_OF_INSTANCES = []
 
 	def initialize
@@ -22,8 +21,8 @@ module Findable
 	end
 
   def find_by_name(name)
-    NUMBER_OF_INSTANCES.detect{|a| a.name}
-    binding.pry
+    self.all.find { |obj| obj.name == name }
+    # binding.pry
   end
 
   def create_by_name(name)

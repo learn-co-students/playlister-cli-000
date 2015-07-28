@@ -15,11 +15,20 @@ class LibraryParser
 	end
 
   def build_song(artist_name, song_name, genre_name)
-    artist = Artist.create_by_name(artist_name)
-    genre = Genre.create_by_name(genre_name)
-    song = Song.new.tap {|x| x.artist = artist; x.genre = genre;x.name = song_name}
-    binding.pry
+    artist = Artist.new.tap {|a| a.name = artist_name}
+    genre = Genre.new.tap {|g| g.name = genre_name}
+    song = Song.new.tap {|s| s.name = song_name}
+    song.genre = genre
+    song.artist = artist
     return song
+  end
+
+  def call
+  	@files.each_with_object([]) do |file, answer_array|
+  		parts = self.parse_filename(file)
+  		song = build_song(parts[0], parts[1], parts[2])
+  		answer_array<<song
+  	end
   end
 
 end
