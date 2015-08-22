@@ -9,7 +9,7 @@ describe "LibraryParser" do
 
   it 'loads files from a directory' do
     expect(parser.files).to_not be_empty
-    expect(parser.files.size).to eq(99)
+    expect(parser.files.size).to eq(15)
   end
 
   it 'parses a filename into 3 parts' do
