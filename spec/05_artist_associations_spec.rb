@@ -1,3 +1,5 @@
+require 'pry'
+
 describe Artist do
   before(:each) do
     Artist.reset_all
